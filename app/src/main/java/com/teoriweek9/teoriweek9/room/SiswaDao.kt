@@ -1,4 +1,4 @@
-package com.example.teoriweek9.room
+package com.teoriweek9.teoriweek9.room
 
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy

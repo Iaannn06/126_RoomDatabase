@@ -1,4 +1,4 @@
-package com.example.teoriweek9.ui.theme
+package com.teoriweek9.teoriweek9.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

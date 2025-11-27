@@ -1,4 +1,4 @@
-package com.example.teoriweek9
+package com.teoriweek9.teoriweek9
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

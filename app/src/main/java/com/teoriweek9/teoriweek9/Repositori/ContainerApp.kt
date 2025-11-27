@@ -1,8 +1,8 @@
-package com.example.teoriweek9.Repositori
+package com.teoriweek9.teoriweek9.Repositori
 
 import android.app.Application
 import android.content.Context
-import com.example.teoriweek9.room.DatabaseSiswa
+import com.teoriweek9.teoriweek9.room.DatabaseSiswa
 
 interface ContainerApp {
     val repositoriSiswa : RepositoriSiswa

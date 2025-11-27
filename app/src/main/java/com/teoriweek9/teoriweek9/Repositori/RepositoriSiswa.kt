@@ -1,7 +1,7 @@
-package com.example.teoriweek9.Repositori
+package com.teoriweek9.teoriweek9.Repositori
 
-import com.example.teoriweek9.room.Siswa
-import com.example.teoriweek9.room.SiswaDao
+import com.teoriweek9.teoriweek9.room.Siswa
+import com.teoriweek9.teoriweek9.room.SiswaDao
 import kotlinx.coroutines.flow.Flow
 
 interface RepositoriSiswa {

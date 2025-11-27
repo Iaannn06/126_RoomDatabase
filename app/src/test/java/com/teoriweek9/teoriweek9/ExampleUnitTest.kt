@@ -1,4 +1,4 @@
-package com.example.teoriweek9
+package com.teoriweek9.teoriweek9
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.example.teoriweek9
+package com.teoriweek9.teoriweek9
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.teoriweek9.ui.theme.TeoriWeek9Theme
+import com.teoriweek9.teoriweek9.ui.theme.TeoriWeek9Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

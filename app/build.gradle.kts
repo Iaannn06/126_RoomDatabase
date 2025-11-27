@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.teoriweek9"
+    namespace = "com.teoriweek9.teoriweek9"
     compileSdk = 36
 
     defaultConfig {
@@ -51,6 +51,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.room.common.jvm)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.room.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
