@@ -9,4 +9,8 @@ class HomeViewModel(private val repositoriSiswa: RepositoriSiswa): ViewModel() {
     }
 }
 
-val homeUiState:
+
+val homeUIState: StateFLow<HomeUiState> = repositoriSiswa.getAllSiswaStream()
+    .filterNotNUll()
+    .map {HomeUiState(listSiswa = it.toList())}
+
