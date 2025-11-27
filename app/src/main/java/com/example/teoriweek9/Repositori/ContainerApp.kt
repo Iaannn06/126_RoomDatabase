@@ -21,7 +21,7 @@ class AplikasiSiswa : Application(){
 
     override fun onCreate(){
         super.onCreate()
-        container - ContainerDataApp(context = this)
+        container = ContainerDataApp(context = this)
     }
 
 }
