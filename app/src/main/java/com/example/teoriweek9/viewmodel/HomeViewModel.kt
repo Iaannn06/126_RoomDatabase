@@ -4,5 +4,5 @@ import androidx.lifecycle.ViewModel
 import com.example.teoriweek9.Repositori.RepositoriSiswa
 
 class HomeViewModel(private val repositoriSiswa: RepositoriSiswa): ViewModel() {
-
+    private const val TIMEOUT_MILLIS = 5_000L
 }
