@@ -1,16 +1,31 @@
 package com.example.teoriweek9.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope // Pastikan import ini ada
 import com.example.teoriweek9.Repositori.RepositoriSiswa
+import com.example.teoriweek9.room.Siswa
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 class HomeViewModel(private val repositoriSiswa: RepositoriSiswa): ViewModel() {
+
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
+
+    val homeUiState: StateFlow<HomeUIState> = repositoriSiswa.getAllSiswaStream()
+        .filterNotNull()
+        .map { HomeUIState(listSiswa = it.toList()) }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
+            initialValue = HomeUIState()
+        )
 }
 
-
-val homeUIState: StateFLow<HomeUiState> = repositoriSiswa.getAllSiswaStream()
-    .filterNotNUll()
-    .map {HomeUiState(listSiswa = it.toList())}
-
+data class HomeUIState(
+    val listSiswa: List<Siswa> = listOf()
+)
