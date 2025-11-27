@@ -8,5 +8,7 @@ interface ContainerApp {
 
 class ContainerDataAPp(private val context: Context):
         ContainerApp{
+            override val repositoriSiswa: RepositoriSiswa by lazy {
 
+            }
         }
