@@ -2,6 +2,8 @@ package com.teoriweek9.teoriweek9.Repositori
 
 import android.app.Application
 import android.content.Context
+import com.teoriweek9.room.OfflineRepositoriSiswa
+import com.teoriweek9.room.RepositoriSiswa
 import com.teoriweek9.teoriweek9.room.DatabaseSiswa
 
 interface ContainerApp {
@@ -12,7 +14,8 @@ class ContainerDataApp(private val context: Context):
         ContainerApp{
             override val repositoriSiswa: RepositoriSiswa by lazy {
                 OfflineRepositoriSiswa(
-                siswaDao = DatabaseSiswa.getDatabase(context).siswaDao())
+                    siswaDao = DatabaseSiswa.getDatabase(context).siswaDao()
+                )
             }
         }
 
