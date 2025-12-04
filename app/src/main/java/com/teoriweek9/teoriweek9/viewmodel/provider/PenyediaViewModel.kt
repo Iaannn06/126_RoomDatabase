@@ -3,12 +3,15 @@ package com.teoriweek9.teoriweek9.viewmodel.provider
 
 import android.app.Application
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.example.tu.repositori.AplikasiSiswa // Disesuaikan
+import com.example.tu.repositori.AplikasiSiswa
 import com.example.myroomsatu.viewmodel.EntryViewModel
-import com.example.myroomsatu.viewmodel.HomeViewModel
+import com.example.teoriweek9.viewmodel.DetailViewModel
+import com.teoriweek9.teoriweek9.Repositori.AplikasiSiswa
+import com.teoriweek9.teoriweek9.viewmodel.HomeViewModel
 
 /**
  * Objek yang menyediakan instance [ViewModelFactory] untuk setiap Layar (Screen) Compose.
@@ -24,6 +27,11 @@ object PenyediaViewModel {
         initializer {
             // Mengambil RepositoriSiswa dari container AplikasiSiswa
             HomeViewModel(aplikasiSiswa().container.repositoriSiswa)
+        }
+
+        initializer {
+            DetailViewModel(savedStateHandle=this.createSavedStateHandle(),
+                repositoriSiswa = aplikasiSiswa().container.repositoriSiswa)
         }
 
         // Inisialisasi EntryViewModel
