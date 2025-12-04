@@ -1,18 +1,18 @@
-package com.example.myroomsatu.viewmodel
+package com.example.teoriweek9.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.teoriweek9.teoriweek9.room.RepositoriSiswa
+import com.teoriweek9.room.RepositoriSiswa
 import com.teoriweek9.teoriweek9.room.Siswa
 import kotlinx.coroutines.launch
 
 class EntryViewModel(private val repositoriSiswa: RepositoriSiswa): ViewModel() {
 
-    // Berisi status Siswa saat ini (StateFlow tidak diperlukan jika state hanya di-update dari ViewModel)
+    //
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
-        private set // Hanya bisa diubah di dalam ViewModel
+        private set
 
     private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
         return with(uiState) {
@@ -63,7 +63,7 @@ fun Siswa.toDetailSiswa(): DetailSiswa = DetailSiswa(
 )
 
 
-fun UIStateSiswa.toUiStateSiswa(isEntryValid: Boolean = false): UIStateSiswa = UIStateSiswa(
+fun Siswa.toUiStateSiswa(isEntryValid: Boolean = false): UIStateSiswa = UIStateSiswa(
     detailSiswa = this.toDetailSiswa(),
     isEntryValid = isEntryValid
 )

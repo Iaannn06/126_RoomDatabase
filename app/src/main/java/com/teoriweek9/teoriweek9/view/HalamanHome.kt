@@ -35,11 +35,11 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.teoriweek9.teoriweek9.room.Siswa
 import com.teoriweek9.teoriweek9.view.route.DestinasiHome
-import com.teoriweek9.teoriweek9.viewmodel.HomeViewModel
 import com.teoriweek9.teoriweek9.viewmodel.provider.PenyediaViewModel
 import com.teoriweek9.teoriweek9.R
 
 import com.teoriweek9.teoriweek9.view.SiswaTopAppBar
+import com.teoriweek9.teoriweek9.view.route.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

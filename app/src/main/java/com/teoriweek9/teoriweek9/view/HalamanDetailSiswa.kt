@@ -1,4 +1,4 @@
-package com.example.myroomsiswa.view
+package com.teoriweek9.teoriweek9.view
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -34,21 +34,22 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.myroomsatu.viewmodel.toSiswa
-import com.teoriweek9.teoriweek9.R
-import com.example.myroomsiswa.view.route.DestinasiDetailSiswa
+import com.example.teoriweek9.view.route.DestinasiDetailSiswa
 import com.example.teoriweek9.viewmodel.DetailSiswaUiState
 import com.example.teoriweek9.viewmodel.DetailViewModel
+import com.example.teoriweek9.viewmodel.toSiswa
+import com.teoriweek9.teoriweek9.R
 import com.teoriweek9.teoriweek9.view.SiswaTopAppBar
 import com.teoriweek9.teoriweek9.viewmodel.provider.PenyediaViewModel
 import kotlinx.coroutines.launch
 import com.teoriweek9.teoriweek9.room.Siswa
 
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailSiswaScreen(
-    //navigateToEditItem: (Int) -> Unit,
+    navigateToEditItem: (Int) -> Unit,
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DetailViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -65,8 +66,8 @@ fun DetailSiswaScreen(
             val uiState = viewModel.uiDetailState.collectAsState()
             FloatingActionButton(
                 onClick = {
-                    //navigateToEditItem(uiState.value.detailSiswa.id)
-                    },
+                    navigateToEditItem(uiState.value.detailSiswa.id) // Diaktifkan
+                },
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large))
 

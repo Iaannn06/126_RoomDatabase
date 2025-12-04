@@ -10,17 +10,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.myroomsiswa.view.DetailSiswaScreen
-import com.example.myroomsiswa.view.route.DestinasiDetailSiswa
-import com.example.myroomsiswa.view.route.DestinasiDetailSiswa.itemIdArg
+
+import com.example.teoriweek9.view.route.DestinasiDetailSiswa
+import com.example.teoriweek9.view.route.DestinasiDetailSiswa.itemIdArg
+import com.teoriweek9.teoriweek9.view.DetailSiswaScreen
+import com.teoriweek9.teoriweek9.view.EditSiswaScreen
 import com.teoriweek9.teoriweek9.view.EntrySiswaScreen
 import com.teoriweek9.teoriweek9.view.HomeScreen
+import com.teoriweek9.teoriweek9.view.route.DestinasiEditSiswa
 import com.teoriweek9.teoriweek9.view.route.DestinasiEntry
 import com.teoriweek9.teoriweek9.view.route.DestinasiHome
 
 @Composable
 fun SiswaApp(navController: NavHostController = rememberNavController(), modifier: Modifier = Modifier) {
-    // Fungsi utama yang dipanggil dari MainActivity atau komponen tingkat tinggi lainnya
     HostNavigasi(navController = navController, modifier = modifier)
 }
 
@@ -29,52 +31,38 @@ fun SiswaApp(navController: NavHostController = rememberNavController(), modifie
 fun HostNavigasi(
     navController: NavHostController,
     modifier: Modifier = Modifier
-) {
-    // NavHost mendefinisikan grafik navigasi aplikasi
-    NavHost(
-        navController = navController,
-        // Layar awal saat aplikasi dibuka
-        startDestination = DestinasiHome.route,
-        modifier = modifier
-    ) {
-        // Mendefinisikan rute untuk Layar Home
-        composable(DestinasiHome.route) {
+){
+    NavHost(navController=navController, startDestination = DestinasiHome.route, modifier = Modifier)
+    {
+        composable(DestinasiHome.route){
             HomeScreen(
-                // Aksi untuk menavigasi ke layar Entry
-                navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
+                navigateToItemEntry = {navController.navigate(DestinasiEntry.route)},
+                //edit 1 : tambahkan parameter navigateToItemUpdate
                 navigateToItemUpdate = {
-                    navController.navigate(route="${DestinasiDetailSiswa.route}/${it}")
+                    navController.navigate("${DestinasiDetailSiswa.route}/$it")
                 }
             )
         }
-        composable(route=DestinasiEntry.route) {
-            EntrySiswaScreen(navigateBack = {navController.popBackStack()})
+        composable(DestinasiEntry.route){
+            EntrySiswaScreen(navigateBack = { navController.popBackStack()})
         }
-
+        //edit 2 : tambahkan 2 composable route
         composable(route = DestinasiDetailSiswa.routeWithArgs,
-            arguments = listOf(navArgument(name = itemIdArg){
+            arguments = listOf(navArgument(DestinasiDetailSiswa.itemIdArg) {
                 type = NavType.IntType
             })
         ){
             DetailSiswaScreen(
-                navigateBack = {navController.navigateUp()}
-            )
+                navigateToEditItem = {navController.navigate("${DestinasiEditSiswa.route}/$it")},
+                navigateBack = { navController.navigateUp() })
         }
-
-        composable(route=DestinasiDetailSiswa.routeWithArgs,
-            arguments = listOf(navArgument(name=itemIdArg) {
+        composable(route = DestinasiEditSiswa.routeWithArgs,
+            arguments = listOf(navArgument(DestinasiEditSiswa.itemIdArg){
                 type = NavType.IntType
-            })
-        ){
-
-        }
-
-        // Mendefinisikan rute untuk Layar Entry Siswa
-        composable(DestinasiEntry.route) {
-            EntrySiswaScreen(
-                // Aksi untuk kembali ke layar sebelumnya (popBackStack)
-                navigateBack = { navController.popBackStack() },
-            )
+            })){
+            EditSiswaScreen(
+                navigateBack = {navController.popBackStack()},
+                onNavigateUp = { navController.navigateUp() })
         }
     }
 }

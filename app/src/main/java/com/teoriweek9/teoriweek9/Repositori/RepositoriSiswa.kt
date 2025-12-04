@@ -1,22 +1,20 @@
-package com.teoriweek9.teoriweek9.room
+package com.teoriweek9.room
 
 
-
-import androidx.room.Insert
-
-import androidx.room.OnConflictStrategy
-
-import androidx.room.Query
+import com.teoriweek9.teoriweek9.room.Siswa
+import com.teoriweek9.teoriweek9.room.SiswaDao
 
 import kotlinx.coroutines.flow.Flow
 
 
-interface RepositoriSiswa{
+interface RepositoriSiswa {
     fun getAllSiswaStream(): Flow<List<Siswa>>
     suspend fun insertSiswa(siswa: Siswa)
     fun getSiswaStream(id: Int): Flow<Siswa?>
     suspend fun deleteSiswa(siswa: Siswa)
+    suspend fun updateSiswa(siswa: Siswa)
 }
+
 class OfflineRepositoriSiswa(
     private val siswaDao: SiswaDao
 ): RepositoriSiswa {
@@ -24,4 +22,5 @@ class OfflineRepositoriSiswa(
     override suspend fun insertSiswa(siswa: Siswa) = siswaDao.insert(siswa)
     override fun getSiswaStream(id: Int): Flow<Siswa?> = siswaDao.getSiswa(id)
     override suspend fun deleteSiswa(siswa: Siswa) = siswaDao.delete(siswa)
+    override suspend fun updateSiswa(siswa: Siswa) = siswaDao.update(siswa)
 }
