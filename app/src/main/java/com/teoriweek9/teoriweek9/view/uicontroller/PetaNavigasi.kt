@@ -1,18 +1,20 @@
 package com.example.myroomsatu.view.uicontroller
 
+import android.R.attr.type
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.myroomsatu.view.EntrySiswaScreen
-import com.example.myroomsatu.view.HomeScreen
-import com.example.myroomsatu.view.route.DestinasiHome
-import com.example.myroomsatu.view.route.DestinasiEntry
+import androidx.navigation.navArgument
+import com.example.myroomsiswa.view.route.DestinasiDetailSiswa
+import com.example.myroomsiswa.view.route.DestinasiDetailSiswa.itemIdArg
 import com.teoriweek9.teoriweek9.view.EntrySiswaScreen
 import com.teoriweek9.teoriweek9.view.HomeScreen
+import com.teoriweek9.teoriweek9.view.route.DestinasiEntry
 import com.teoriweek9.teoriweek9.view.route.DestinasiHome
 
 @Composable
@@ -39,7 +41,21 @@ fun HostNavigasi(
             HomeScreen(
                 // Aksi untuk menavigasi ke layar Entry
                 navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
+                navigateToItemUpdate = {
+                    navController.navigate(route="${DestinasiDetailSiswa.route}/${it}")
+                }
             )
+        }
+        composable(route=DestinasiEntry.route) {
+            EntrySiswaScreen(navigateBack = {navController.popBackStack()})
+        }
+
+        composable(route=DestinasiDetailSiswa.routeWithArgs,
+            arguments = listOf(navArgument(name=itemIdArg) {
+                type = NavType.IntType
+            })
+        ){
+
         }
 
         // Mendefinisikan rute untuk Layar Entry Siswa
