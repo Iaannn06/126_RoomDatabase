@@ -3,11 +3,11 @@ package com.example.teoriweek9.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myroomsatu.viewmodel.DetailSiswa
-import com.example.myroomsatu.viewmodel.toDetailSiswa
-import com.example.myroomsatu.viewmodel.toSiswa
+import com.example.teoriweek9.viewmodel.DetailSiswa
+import com.example.teoriweek9.viewmodel.toDetailSiswa
+import com.example.teoriweek9.viewmodel.toSiswa
 import com.example.teoriweek9.view.route.DestinasiDetailSiswa
-import com.teoriweek9.teoriweek9.room.RepositoriSiswa
+import com.teoriweek9.room.RepositoriSiswa
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
