@@ -24,12 +24,12 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.myroomsatu.viewmodel.DetailSiswa
-import com.example.myroomsatu.viewmodel.EntryViewModel
-import com.example.myroomsatu.viewmodel.UIStateSiswa
+import com.example.teoriweek9.viewmodel.DetailSiswa
+import com.example.teoriweek9.viewmodel.EntryViewModel
+import com.example.teoriweek9.viewmodel.UIStateSiswa
 import com.teoriweek9.teoriweek9.viewmodel.provider.PenyediaViewModel
 import com.teoriweek9.teoriweek9.view.route.DestinasiEntry
-import com.teoriweek9.teoriweek9.R // Import R yang BENAR dari paket akar
+import com.teoriweek9.teoriweek9.R
 import kotlinx.coroutines.launch
 import com.teoriweek9.teoriweek9.view.SiswaTopAppBar
 
